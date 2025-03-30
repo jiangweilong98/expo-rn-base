@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome",
+  "settings": {
+    "title": "Settings"
+  },
+  "video": {
+    "pause": "pause",
+    "play": "play"
+  },
+  "Switch to Chinese": "Switch to Chinese",
+  "Switch to English": "Switch to English"
+}
