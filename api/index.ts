@@ -6,7 +6,7 @@ if (!process.env.EXPO_PUBLIC_API_URL) {
 const http = new HttpClient(process.env.EXPO_PUBLIC_API_URL);
 
 http.addRequestInterceptor(async (config) => {
-  console.log('Request interceptor', config);
+  // console.log('Request interceptor', config);
   const headers = new Headers(config.headers);
   headers.set('Content-Type', 'application/json');
   return {
@@ -16,7 +16,7 @@ http.addRequestInterceptor(async (config) => {
 });
 
 http.addResponseInterceptor(async (response) => {
-  console.log('Response interceptor', response);
+  // console.log('Response interceptor', response);
   return response;
 });
 
