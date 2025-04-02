@@ -6,11 +6,10 @@ import { useTranslation } from 'react-i18next';
 
 export default function LocalesScreen() {
   const { t, i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
   useEffect(() => {
-    console.log('selectedLanguage', selectedLanguage);
-    i18n.changeLanguage(selectedLanguage);
+    i18n.changeLanguage(selectedLanguage).catch(console.error);
   }, [selectedLanguage, i18n]);
   return (
     <>
