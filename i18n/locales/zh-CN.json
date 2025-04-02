@@ -17,5 +17,17 @@
     "traditionalChinese": "繁體中文",
     "English": "English",
     "chooseImg": "选择图片"
+  },
+  "login": {
+    "title": "用户登录",
+    "button.login": "登录",
+    "button.register": "注册账号",
+    "button.forget.password": "忘记密码？",
+    "input.email.placeholder": "请输入您的电子邮件地址",
+    "input.password.placeholder": "请输入您的密码",
+    "errors.email.invalid": "邮箱不符合格式",
+    "errors.email.required": "邮箱不能为空",
+    "errors.password.required": "密码不能为空",
+    "errors.password.minLength": "密码至少包含 8 个字符"
   }
 }

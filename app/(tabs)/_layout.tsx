@@ -41,7 +41,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="exampleLink"
+        name="example-link"
         options={{
           title: 'Example Link',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="link" color={color} />,

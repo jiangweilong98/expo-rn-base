@@ -23,6 +23,9 @@ export default function HomeScreen() {
       <Link style={styles.link} href={'/example/locales'}>
         to locales
       </Link>
+      <Link style={styles.link} href={'/login'}>
+        to login
+      </Link>
     </ParallaxScrollView>
   );
 }

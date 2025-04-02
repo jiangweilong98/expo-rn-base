@@ -17,5 +17,17 @@
     "traditionalChinese": "繁體中文",
     "English": "English",
     "chooseImg": "choose img"
+  },
+  "login": {
+    "title": "User Login",
+    "button.login": "LOG IN",
+    "button.register": "Register",
+    "button.forget.password": "Forget Password?",
+    "input.email.placeholder": "Please enter your email address",
+    "input.password.placeholder": "Please enter your password",
+    "errors.email.invalid": "The Mailbox does not conform to the format",
+    "errors.email.required": "The mailbox can not be empty",
+    "errors.password.required": "The password can not be empty",
+    "errors.password.minLength": "The password must contain at least 8 characters"
   }
 }

@@ -17,5 +17,17 @@
     "traditionalChinese": "繁體中文",
     "English": "English",
     "chooseImg": "選擇圖片"
+  },
+  "login": {
+    "title": "用戶登錄",
+    "button.login": "登錄",
+    "button.register": "注冊賬號",
+    "button.forget.password": "忘記密碼？",
+    "input.email.placeholder": "請輸入您的電子郵箱",
+    "input.password.placeholder": "請輸入您的密碼",
+    "errors.email.invalid": "郵箱不符合格式",
+    "errors.email.required": "郵箱不能為空",
+    "errors.password.required": "密碼不能爲空",
+    "errors.password.minLength": "密碼至少包含 8 個字符"
   }
 }
