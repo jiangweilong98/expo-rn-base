@@ -7,6 +7,10 @@
     "pause": "暂停",
     "play": "播放"
   },
-  "Switch to Chinese": "切换中文",
-  "Switch to English": "切换英文"
+  "example": {
+    "switchLangToZhCn": "切换简体中文",
+    "switchLangToZhTw": "切換繁體中文",
+    "switchLangToEn": "Switch to English",
+    "languagePickerExample": "国际化语言示例"
+  }
 }

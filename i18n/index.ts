@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import en from './locales/en.json';
 import zh from './locales/zh.json';
 import zhCN from './locales/zh-CN.json';
+import zhTW from './locales/zh-TW.json';
 
 const resources: Resource = {
   en: {
@@ -17,6 +18,9 @@ const resources: Resource = {
   },
   'zh-CN': {
     translation: zhCN,
+  },
+  'zh-TW': {
+    translation: zhTW,
   },
 };
 const languageDetector: LanguageDetectorAsyncModule = {

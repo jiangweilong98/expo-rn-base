@@ -1,7 +1,9 @@
 import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { Button } from '@rneui/themed';
+import { Stack } from 'expo-router';
 
 const videoSource =
   'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
@@ -13,26 +15,37 @@ export default function VideoScreen() {
   });
 
   const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
-    <View style={styles.contentContainer}>
-      <VideoView style={styles.video} player={player} allowsFullscreen allowsPictureInPicture />
-      <View style={styles.controlsContainer}>
-        <Button
-          title={isPlaying ? t('video.pause') : t('video.play')}
-          onPress={() => {
-            if (isPlaying) {
-              player.pause();
-            } else {
-              player.play();
-            }
-          }}
-        />
+    <>
+      {/* <Header></Header> */}
+      <Stack.Screen
+        options={{
+          title: t('example.imagePickerExample'),
+          headerStyle: { backgroundColor: '#fff' },
+          headerTintColor: '#1c1c1c',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+      <View style={styles.contentContainer}>
+        <VideoView style={styles.video} player={player} allowsFullscreen allowsPictureInPicture />
+        <View style={styles.controlsContainer}>
+          <Button
+            title={isPlaying ? t('video.pause') : t('video.play')}
+            onPress={() => {
+              if (isPlaying) {
+                player.pause();
+              } else {
+                player.play();
+              }
+            }}
+          />
+        </View>
       </View>
-      <Button title={t('Switch to Chinese')} onPress={() => i18n.changeLanguage('zh-CN')} />
-      <Button title={t('Switch to English')} onPress={() => i18n.changeLanguage('en')} />
-    </View>
+    </>
   );
 }
 

@@ -3,9 +3,11 @@ import { Button, View, StyleSheet } from 'react-native';
 import { Image } from 'expo-image';
 import * as ImagePicker from 'expo-image-picker';
 import { Stack } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function ImagePickerExample() {
   const [image, setImage] = useState<string | null>(null);
+  const { t } = useTranslation();
   const pickerImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -52,7 +54,7 @@ export default function ImagePickerExample() {
           transition={1000}
         />
       )}
-      <Button title={'选择图片'} onPress={pickerImage}></Button>
+      <Button title={t('example.chooseImg')} onPress={pickerImage}></Button>
     </View>
   );
 }
