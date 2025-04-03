@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { View, StyleSheet, Button as Buttonrn } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Input, Button, Text, Icon } from '@rneui/themed';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -21,8 +21,6 @@ const createLoginSchema = (t: (key: string) => string) =>
   });
 
 export default function LoginScreen(props: any, context: any) {
-  console.log(props, '2222222222');
-  console.log(context, '1111');
   const { t } = useTranslation();
   const router = useRouter();
   // const [loading, setLoading] = useState(false);
@@ -100,7 +98,6 @@ export default function LoginScreen(props: any, context: any) {
               buttonStyle={styles.button}
               containerStyle={styles.buttonContainer}
             />
-            <Buttonrn title={'五十多阿萨啊'}></Buttonrn>
 
             <View style={styles.links}>
               <Button

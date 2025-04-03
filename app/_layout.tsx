@@ -56,7 +56,6 @@ export default function RootLayout() {
   );
 }
 
-// 添加样式
 const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
