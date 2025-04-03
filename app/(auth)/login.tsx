@@ -1,27 +1,33 @@
 import { useState, useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Button as Buttonrn } from 'react-native';
 import { Input, Button, Text, Icon } from '@rneui/themed';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Stack, useRouter } from 'expo-router';
 import * as userApi from '@/api/user';
 import { useTranslation } from 'react-i18next';
+import { useGlobalStore } from '@/store/useGlobalStore';
 
 const createLoginSchema = (t: (key: string) => string) =>
   Yup.object().shape({
-    email: Yup.string()
+    /* email: Yup.string()
       .required(t('login.errors.email.required'))
       .email(t('login.errors.email.invalid')),
     password: Yup.string()
       .required(t('login.errors.password.required'))
-      .min(8, t('login.errors.password.minLength')),
+      .min(8, t('login.errors.password.minLength')), */
+    email: Yup.string().required(t('login.errors.email.required')),
+    password: Yup.string().required(t('login.errors.password.required')),
   });
 
-export default function LoginScreen() {
+export default function LoginScreen(props: any, context: any) {
+  console.log(props, '2222222222');
+  console.log(context, '1111');
   const { t } = useTranslation();
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { loading, setLoading } = useGlobalStore();
 
   // 表单验证规则
   const LoginSchema = useMemo(() => createLoginSchema(t), [t]);
@@ -71,6 +77,7 @@ export default function LoginScreen() {
               onBlur={handleBlur('email')}
               errorMessage={touched.email && errors.email ? errors.email : undefined}
               inputContainerStyle={styles.inputContainer}
+              inputStyle={styles.inputStyle}
             />
 
             <Input
@@ -82,6 +89,7 @@ export default function LoginScreen() {
               onBlur={handleBlur('password')}
               errorMessage={touched.password && errors.password ? errors.password : undefined}
               inputContainerStyle={styles.inputContainer}
+              inputStyle={styles.inputStyle}
             />
 
             <Button
@@ -92,6 +100,7 @@ export default function LoginScreen() {
               buttonStyle={styles.button}
               containerStyle={styles.buttonContainer}
             />
+            <Buttonrn title={'五十多阿萨啊'}></Buttonrn>
 
             <View style={styles.links}>
               <Button
@@ -146,6 +155,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     backgroundColor: 'white',
+  },
+  inputStyle: {
+    fontSize: 16,
   },
   button: {
     backgroundColor: '#2089dc',

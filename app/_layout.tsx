@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '@/i18n';
 import 'react-native-reanimated';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { useGlobalStore } from '@/store/useGlobalStore';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -18,6 +20,7 @@ export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
+  const { loading } = useGlobalStore();
 
   useEffect(() => {
     if (loaded) {
@@ -32,6 +35,16 @@ export default function RootLayout() {
   return (
     <I18nextProvider i18n={i18n}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        {loading && (
+          <View style={styles.overlay}>
+            <ActivityIndicator
+              size="large"
+              color={
+                colorScheme === 'dark' ? DarkTheme.colors.primary : DefaultTheme.colors.primary
+              }
+            />
+          </View>
+        )}
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="example" options={{ headerShown: false }} />
@@ -42,3 +55,14 @@ export default function RootLayout() {
     </I18nextProvider>
   );
 }
+
+// 添加样式
+const styles = StyleSheet.create({
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 999,
+  },
+});
